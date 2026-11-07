@@ -1,1 +1,16 @@
-
+{
+  "geode": "v5.11.2",
+  "gd": {
+    "win": "2.2081"
+  },
+  "id": "justfroznik.auto-deco",
+  "name": "JustFroznik Auto Deco",
+  "version": "v1.0.0",
+  "developer": "JustFroznik",
+  "description": "Automatic decoration tools for Geometry Dash.",
+  "tags": [
+    "editor",
+    "utility",
+    "enhancement"
+  ]
+}
