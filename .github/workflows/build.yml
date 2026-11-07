@@ -14,6 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Clang 19
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-19 lld-19
+          echo "/usr/lib/llvm-19/bin" >> "$GITHUB_PATH"
+
       - name: Build Geode Mod
         id: build
         uses: geode-sdk/build-geode-mod@main
