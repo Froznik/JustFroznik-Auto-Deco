@@ -1,35 +1,18 @@
-
-name: Build JustFroznik Auto Deco
+name: Build Geode Mod
 
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
+  push:
+    branches:
+      - "**"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Windows
+    runs-on: windows-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install Clang 19
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang-19 lld-19
-          echo "/usr/lib/llvm-19/bin" >> "$GITHUB_PATH"
-
-      - name: Build Geode Mod
-        id: build
+      - name: Build the mod
         uses: geode-sdk/build-geode-mod@main
-        with:
-          sdk: v5.11.2
-          target: Win64
-
-      - name: Upload mod
-        uses: actions/upload-artifact@v4
-        with:
-          name: JustFroznik-Auto-Deco
-          path: ${{ steps.build.outputs.build-output }}
-          if-no-files-found: error
